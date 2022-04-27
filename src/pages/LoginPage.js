@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { BrowserView, MobileView } from "react-device-detect";
 import "./img/background.jpg";
 import styles from "./LoginPage.module.css";
 
@@ -46,20 +47,24 @@ function LoginPage() {
               </div>
 
               <div class="d-grid gap-2">
-                <Link
-                  to="/admin-dashboard"
-                  className="btn btn-warning text-light mb-2"
-                >
-                  {" "}
-                  LOGIN AS ADMIN
-                </Link>
-                <Link
-                  to="/customer-dashboard"
-                  className="btn btn-danger text-light mb-2"
-                >
-                  {" "}
-                  LOGIN AS CUSTOMER
-                </Link>
+                <BrowserView>
+                  <Link
+                    to="/admin-dashboard"
+                    className="btn btn-warning text-light mb-2"
+                  >
+                    {" "}
+                    LOGIN AS ADMIN
+                  </Link>
+                </BrowserView>
+                <MobileView>
+                  <Link
+                    to="/customer-dashboard"
+                    className="btn btn-danger text-light mb-2"
+                  >
+                    {" "}
+                    LOGIN AS CUSTOMER
+                  </Link>
+                </MobileView>
               </div>
               <p className="text-white mt-2">
                 <span>You're not yet a Member?</span>
